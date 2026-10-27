@@ -1,0 +1,1627 @@
+@font-face {
+    font-family: "Vazirmatn";
+    src: url("./fonts/Vazirmatn-NL-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Vazirmatn";
+    src: url("./fonts/Vazirmatn-NL-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+* {
+
+box-sizing: border-box;
+
+font-family: "Vazirmatn", sans-serif;
+
+}
+
+
+body {
+
+margin: 0;
+
+padding: 20px;
+
+background-color: #f5f5f5;
+
+font-family: "Vazirmatn", sans-serif;
+
+-webkit-font-smoothing: antialiased;
+
+-moz-osx-font-smoothing: grayscale;
+
+}
+
+
+.main-container {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+
+/* کانتینر هدر */
+
+.header-tabs {
+  width: 100%;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 24px 0 24px; /* پدینگ پایین صفر شد تا خط به کف متصل شود */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* سطر اول: عنوان و فلش SVG */
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-flash {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.header-txt {
+  color: #424242;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* سطر دوم: لیست تب‌ها */
+.tabs-list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+}
+
+/* استایل دکمه‌های تب */
+.tabs-list button {
+  background: none;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  color: #8c8c8c;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0 0 12px 0;
+  position: relative;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+  user-select: none;
+}
+
+.tabs-list button:hover {
+  color: #36459b;
+}
+
+.tabs-list button.active {
+  color: #36459b;
+  font-weight: 700;
+}
+
+/* خط نشان‌دهنده تب فعال */
+.tabs-list button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* قرارگیری دقیق روی border-bottom کانتینر */
+  right: 0;
+  left: 0;
+  height: 2px;
+  background-color: #36459b;
+  border-radius: 2px 2px 0 0;
+}
+
+/* کدهای CSS کانتینر .tab-content و کارت‌های بازخورد */
+
+
+.tab-content {
+    width: 100%;
+    padding: 16px 24px 24px;
+}
+
+
+/* نوار ابزار بالا */
+
+.feedback-toolbar {
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+margin-bottom: 8px;
+
+}
+
+
+.action-buttons {
+
+display: flex;
+
+gap: 8px;
+
+}
+
+
+.icon-btn {
+
+border: none;
+
+background: transparent;
+
+padding: 0;
+
+cursor: pointer;
+
+}
+
+
+.add-feedback-btn {
+
+display: flex;
+
+align-items: center;
+
+gap: 6px;
+
+background: transparent;
+
+border: none;
+
+color: #36459B;
+
+font-size: 14px;
+
+font-weight: 500;
+
+cursor: pointer;
+
+letter-spacing: 0.1%;
+
+vertical-align: middle;
+
+}
+.add-sign {
+    display: inline-flex;
+}
+
+/* کانتینر اصلی کارت */
+
+.feedback-card {
+    background-color: #F0F4FA;
+    width: 100%;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-sizing: border-box;
+}
+
+
+/* ردیف پاسخ شامل عنوان بیرون و کادر سفید */
+
+.reply-wrapper {
+
+display: flex;
+
+align-items: center;
+
+color: #00002C;
+
+font-size: 14px;
+
+letter-spacing: 0%;
+
+gap: 8px;
+
+width: 100%;
+
+}
+
+
+/* متن "پاسخ به:" خارج از کادر */
+
+.reply-badge {
+
+color: #00002C;
+width: 49px;
+height: 16px;
+font-weight: 400;
+
+font-size: 14px;
+letter-spacing: 0%;
+white-space: nowrap;
+
+flex-shrink: 0;
+
+}
+
+
+/* کادر سفید اصلی */
+
+.reply-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    padding: 6px 12px;
+    min-height: 44px;
+    flex: 1; /* پر کردن باقی‌مانده عرض */
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.reply-user {
+
+display: flex;
+
+align-items: center;
+
+gap: 6px;
+
+font-weight: 400;
+
+color: #424242;
+
+white-space: nowrap;
+
+flex-shrink: 0;
+
+font-size: 14px;
+
+line-height: 16px;
+
+}
+
+.avatar-circle {
+
+width: 30px;
+
+height: 30px;
+
+border-radius: 50%;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+font-size: 11px;
+
+font-weight: 700;
+
+color: #C8F9ED;
+
+flex-shrink: 0;
+
+}
+
+
+.green-bg {
+
+background-color: #C8F9ED;
+
+color: #424242;
+
+}
+
+
+.reply-text {
+
+color: #00002C;
+
+font-weight: 400;
+
+font-size: 14px;
+
+line-height: 16px;
+
+white-space: nowrap;
+
+overflow: hidden;
+
+text-overflow: ellipsis;
+
+letter-spacing: 0%;
+
+}
+
+/* تنظیم چیدمان دکمه‌ها دقیقاً بر اساس ترتیب کد HTML */
+
+.action-buttons {
+
+display: flex;
+
+gap: 8px;
+
+direction: ltr; /* ترتیب خوانش عناصر از چپ به راست بر اساس کد HTML */
+
+}
+
+.action-buttons .icon-btn svg {
+
+direction: ltr; 
+
+}
+
+.line-divider {
+    width: calc(100% + 32px); /* جبران پدینگ چپ و راست */
+    margin-right: -16px;       /* لبه راست کارت */
+    margin-left: -16px;        /* لبه چپ کارت */
+    border: none;
+    margin-top: 0px;
+    border-top: 1px solid #C9CCD3;
+}
+.card-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 16px;
+}
+
+.user-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0px;
+    width: 100%;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 10%;
+    border: 1.5px solid #FDD4C7;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 400;
+    color: #00002C;
+    white-space: nowrap;
+}
+/* بخش سمت چپ */
+.user-bar-left {
+    display: flex;
+    align-items: center;
+    direction: ltr;
+    gap: 12px;
+}
+
+/* ۱. آیکون‌ها */
+.action-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.action-icons .icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* ۲ و ۳. تگ‌های رنگی */
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 400;
+    height: 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.badge-red {
+    background-color: #E1797D;
+    color: #FFFFFF;
+}
+
+.badge-green {
+    background-color: #EDF7C7;
+    color: #424242;
+}
+
+.white-dot {
+    width: 19px;
+    height: 19px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* بخش منشن و آواتارهای روی هم */
+.mention-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 69px;
+    height: 35px;
+    background-color: #F8FAFF;
+    padding: 2px 6px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    direction: ltr; /* جهت ثابت برای هم‌پوشانی درست آواتارها */
+}
+
+.at-sign {
+    color: #8C8C8C;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    margin-right: 2px;
+}
+
+.avatar-group {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-group svg {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.avatar-circle-text {
+
+width: 13px;
+
+height: 13px;
+
+border-radius: 50%;
+
+background-color: #C8F9ED;
+border: 1.5px solid #424242;
+font-size: 11px;
+
+font-weight: bold;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+}
+
+
+
+.avatar-circle-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #FDD4C7; /* بوردر هلویی */
+    box-sizing: border-box;   /* محاسبه ضخامت بوردر داخل ابعاد کلی */
+    overflow: hidden;         /* جلوگیری از بیرون زدن محتوای تصویر */
+    margin-left: -15px;       /* هم‌پوشانی */
+    z-index: 2;
+    flex-shrink: 0;
+}
+.line-divider1 {
+    flex: 0 0 calc(100% + 32px); /* تمام‌عرض کارت، بدون hack مارجین منفی */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.user-mention{
+    flex: 0 0 100%;
+    color: #00002C;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.feedback-toolbar2 {
+    width: 100%;
+    background-color: #F0F4FA;
+    border-radius: 12px;
+    padding: 16px;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+
+/* ردیف بالایی */
+.toolbar2-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    direction: rtl;
+}
+
+
+/* =========================
+   کاربر - سمت راست
+   ========================= */
+
+.toolbar2-user {
+    display: flex;
+    align-items: center;
+}
+
+.toolbar2-user-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #424242;
+    white-space: nowrap;
+    direction: rtl;
+}
+
+
+/* =========================
+   ابزارها - سمت چپ
+   ========================= */
+
+.toolbar2-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    direction: ltr;
+}
+
+
+/* آیکون‌ها */
+.action-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+
+/* دکمه آیکون */
+.action-icons .icon-btn {
+    width: 20px;
+    height: 20px;
+
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   Badge وضعیت
+   ========================= */
+
+.toolbar2-actions .status-badge {
+    height: 25px;
+
+    padding: 4px 12px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    border-radius: 20px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   Mention
+   ========================= */
+
+.toolbar2-actions .mention-section {
+    width: 69px;
+    height: 35px;
+
+    padding: 2px 6px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #F8FAFF;
+    border-radius: 12px;
+
+    direction: ltr;
+}
+
+
+.toolbar2-actions .avatar-group {
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================
+   خط جداکننده
+   ========================= */
+
+.feedback-toolbar2 .line-divider3 {
+    width: calc(100% + 32px); /* جبران پدینگ چپ و راست */
+    margin: 12px -16px 4px;
+    border: none;
+    border-top: 1px solid #C9CCD3;
+}
+.toolbar-name{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0%;
+    color: #424242;
+}
+.toolbar2-txt{
+    color: #00002C;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0%;
+    
+}
+
+.toolbar2-content {
+    flex: 1;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    overflow-y: auto;
+    padding-top: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+/* متن */
+.toolbar2-txt {
+    width: 100%;
+    padding: 8px;
+    color: #00002C;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+
+    text-align: right;
+    direction: rtl;
+
+    margin: 0;
+}
+
+/* عکس */
+.toolbar2-image {
+    width: 100%;
+    max-width: 663px;
+    height: 110px;
+
+    border: 1px solid #B2C6E3;
+    
+
+    object-fit: cover;
+    display: block;
+
+    align-self: center;
+}
+/* باکس اصلی کارت */
+.feedback-toolbar3 {
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #F0F4FA;
+    border-radius: 12px;
+    direction: rtl;
+}
+
+/* سطر بالا: چیدمان اسم و ابزارها */
+.toolbar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* اطلاعات کاربر (پروفایل) */
+.user-toolbar3 {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #00002C;
+    white-space: nowrap;
+}
+
+/* بخش سمت چپ ابزارها */
+.icon-toolbar3 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    direction: ltr;
+}
+
+.icon-toolbar3 > svg {
+    width: 92px;
+    height: 20px;
+    display: block;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+/* نشان تایید شده */
+.status-toolbar3 {
+    width: 91px;
+    height: 25px;
+    padding: 4px 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: #75B56B;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 17px;
+    white-space: nowrap;
+    direction: rtl;
+    flex-shrink: 0;
+}
+
+.circle-status {
+    width: 19px;
+    height: 19px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* تایمر */
+.timer-toolbar3 {
+    width: 122px;
+    height: 26px;
+    padding: 3px 8px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background-color: #FEE9D0;
+    border-radius: 20px;
+    color: #424242;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    white-space: nowrap;
+    direction: ltr;
+    flex-shrink: 0;
+}
+
+.timer-toolbar3 > span:first-child {
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.timer-toolbar3 svg {
+    width: 15px;
+    height: 15px;
+    display: block;
+}
+
+/* خط جداکننده لبه‌به‌لبه */
+.toolbar-divider {
+    width: calc(100% + 32px);
+    height: 1px;
+    background-color: #C9CCD3;
+    margin: 0 -16px;
+}
+
+/* سطر پایین: ویس پلیر */
+
+/* کانتینر اصلی پخش‌کننده ویس */
+/* کانتینر اصلی پخش ویس */
+.audio-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    direction: ltr;
+}
+/* دکمه پخش / توقف */
+.play-btn {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    outline: none;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.05);
+}
+
+.play-icon {
+    width: 38px;
+    height: 38px;
+    display: block;
+}
+
+/* کانتینر موج صوتی */
+.waveform-container {
+    flex: 1 1 auto; /* پر کردن هوشمند فضای خالی وسط */
+    display: flex;
+    align-items: center;
+    height: 28px;
+    min-width: 0; /* جلوگیری از سرریز شدن در صفحات کوچک */
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.waveform {
+    width: 100%;
+    height: 21px;
+    display: block;
+}
+
+
+/* تایمر ویس */
+.audio-time {
+    min-width: 40px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #8C8C8C;
+    flex-shrink: 0;
+    line-height: 1;
+    text-align: left;
+    direction: ltr;
+    font-variant-numeric: tabular-nums;
+}
+@media (max-width: 1024px) {
+
+    /* کانتینر اصلی و بدنه: عرض/ارتفاع ثابت به فلوید تبدیل می‌شود */
+    .main-container {
+        width: 100%;
+        height: auto;
+    }
+
+    /* ردیف پاسخ */
+    .reply-wrapper {
+        flex-wrap: wrap;
+        row-gap: 6px;
+    }
+
+    .reply-banner {
+        width: 100%;
+        flex: none;
+        height: auto;
+        min-height: 44px;
+    }
+
+    .reply-user {
+        flex-shrink: 0;
+    }
+
+    .reply-text {
+        white-space: normal;
+    }
+
+    /* کارت بازخورد متنی */
+    .feedback-card {
+        width: 100%;
+        height: auto;
+    }
+
+    /* سطر بالای کارت: راست = نام کاربر، چپ = ابزارها */
+    .card-body {
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+
+    .user-info,
+    .user-toolbar3 {
+        flex-shrink: 0;
+    }
+
+    /* ردیف ابزارها (آیکون‌ها + بج وضعیت + منشن) هرگز داخلش
+       نمی‌شکند؛ اگر جا نشد کل ردیف اسکرول افقی می‌گیرد */
+    .user-bar-left {
+        transform: none;
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+    }
+
+    .user-bar-left::-webkit-scrollbar {
+        display: none;
+    }
+
+    .action-icons,
+    .status-badge,
+    .mention-section {
+        flex-shrink: 0;
+    }
+
+    .user-name {
+        white-space: nowrap;
+    }
+
+    /* در دسکتاپ margin-top منفی خط جداکننده، افست translateY منفی
+       نوار ابزار را جبران می‌کرد؛ چون آن transform در ریسپانسیو
+       حذف شده، این افست هم باید خنثی شود تا متن زیر آن نگیرد */
+    .line-divider1 {
+        margin-top: 0;
+    }
+
+    /* کارت متن + عکس */
+    .feedback-toolbar2 {
+        width: 100%;
+        height: auto;
+    }
+
+    .toolbar2-header {
+        flex-wrap: wrap;
+        row-gap: 8px;
+        margin-top: 0;
+    }
+
+    .toolbar2-user {
+        flex-shrink: 0;
+    }
+
+    .toolbar2-actions {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+    }
+
+    .toolbar2-actions::-webkit-scrollbar {
+        display: none;
+    }
+
+    .toolbar2-image {
+        height: auto;
+        max-height: 260px;
+    }
+
+    /* کارت ویس */
+    .feedback-toolbar3 {
+        width: 100%;
+    }
+
+    .toolbar-top {
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+
+    .icon-toolbar3 {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+    }
+
+    .icon-toolbar3::-webkit-scrollbar {
+        display: none;
+    }
+
+    .icon-toolbar3 > svg,
+    .status-toolbar3,
+    .timer-toolbar3 {
+        flex-shrink: 0;
+    }
+
+    .audio-time {
+        min-width: 36px;
+        font-size: 14px;
+    }
+}
+
+/* =========================
+   تبلت (768px تا 1024px)
+   ========================= */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .user-bar-left {
+        gap: 12px;
+    }
+
+    .toolbar2-actions {
+        gap: 12px;
+    }
+
+    .icon-toolbar3 {
+        gap: 12px;
+    }
+}
+
+/* =========================
+   موبایل (زیر 768px)
+   ========================= */
+@media (max-width: 767px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .main-container {
+        border-radius: 8px;
+    }
+
+    /* هدر و تب‌ها */
+    .header-tabs {
+        padding: 14px 14px 0 14px;
+        gap: 12px;
+    }
+
+    .header-txt {
+        font-size: 14px;
+    }
+
+    .tabs-list {
+        width: 100%;
+        gap: 18px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .tabs-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tabs-list button {
+        font-size: 13px;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* بدنه اصلی */
+    .tab-content {
+        padding: 12px 14px 16px;
+    }
+
+    .tab-panel {
+        gap: 12px;
+    }
+
+    /* نوار ابزار بالا */
+    .feedback-toolbar {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .action-buttons {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .icon-btn svg {
+        width: 34px;
+        height: 34px;
+    }
+
+    /* کارت بازخورد متنی */
+    .feedback-card {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .reply-wrapper {
+        gap: 6px;
+    }
+
+    .user-bar-left {
+        gap: 8px;
+    }
+
+    /* کارت متن + عکس */
+    .feedback-toolbar2 {
+        padding: 12px;
+    }
+
+    .toolbar2-header {
+        gap: 8px;
+    }
+
+    .toolbar2-actions {
+        gap: 8px;
+    }
+
+    .toolbar2-image {
+        max-height: 220px;
+    }
+
+    /* کارت ویس */
+    .feedback-toolbar3 {
+        padding: 12px;
+    }
+
+    .toolbar-top {
+        gap: 10px;
+    }
+
+    .icon-toolbar3 {
+        gap: 8px;
+    }
+
+    .audio-player {
+        flex-wrap: nowrap;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 420px) {
+    .status-badge span:last-child,
+    .status-toolbar3 span:last-child {
+        font-size: 12px;
+    }
+
+    .toolbar2-image {
+        max-height: 160px;
+    }
+}
+
+
+/* ==========================================================
+   بخش‌های اضافه‌شده (تعامل با jQuery)
+   ========================================================== */
+
+[hidden] {
+    display: none !important;
+}
+
+.tab-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* حالت‌های hover و focus برای کنترل‌ها */
+.icon-btn,
+.add-feedback-btn,
+.status-badge,
+.status-toolbar3 {
+    transition: opacity 0.15s ease, transform 0.15s ease, background-color 0.2s ease;
+}
+
+.icon-btn:hover,
+.icon-btn:focus-visible {
+    opacity: 0.8;
+    transform: translateY(-1px);
+}
+
+button:focus-visible,
+.waveform-container:focus-visible,
+textarea:focus-visible,
+[contenteditable="true"]:focus-visible {
+    outline: 2px solid #36459B;
+    outline-offset: 2px;
+}
+
+.status-badge:hover,
+.status-toolbar3:hover {
+    opacity: 0.9;
+}
+
+.badge-green {
+    background-color: #75B56B;
+    color: #FFFFFF;
+}
+
+.status-toolbar3 {
+    cursor: pointer;
+}
+
+.status-toolbar3.is-unconfirmed {
+    background-color: #E1797D;
+}
+
+.add-feedback-btn[aria-expanded="true"] {
+    font-weight: 700;
+}
+
+.tabs-list button:focus-visible {
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* پیام خالی بودن لیست */
+.empty-state {
+    margin: 24px 0;
+    text-align: center;
+    color: #8C8C8C;
+    font-size: 14px;
+}
+
+/* فرم‌های درون‌خطی (بازخورد جدید / پاسخ) */
+.inline-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #FFFFFF;
+    border: 1px solid #D7DAEA;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.inline-form-label {
+    font-size: 13px;
+    color: #424242;
+}
+
+.inline-form textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 72px;
+    padding: 10px 12px;
+    border: 1px solid #C9CCD3;
+    border-radius: 8px;
+    background: #F8FAFF;
+    color: #00002C;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.inline-form-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: #36459B;
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background: #2b387d;
+}
+
+.btn-ghost {
+    background: #D7DAEA;
+    color: #36459B;
+}
+
+.btn-ghost:hover {
+    background: #c8ccdf;
+}
+
+.card-form {
+    margin-top: 4px;
+}
+
+/* پاسخ‌های ثبت‌شده داخل کارت */
+.replies {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.replies .reply-banner {
+    border-radius: 14px;
+}
+
+.reply-meta {
+    font-size: 12px;
+    color: #8C8C8C;
+    white-space: nowrap;
+}
+
+/* حالت ویرایش */
+.is-editing .user-mention > span,
+.is-editing .toolbar2-txt {
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 6px 8px;
+}
+
+.edit-bar {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+/* فهرست‌های لاگ و پیوست */
+.logs-list,
+.attach-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.logs-list li,
+.attach-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #F0F4FA;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #00002C;
+}
+
+.logs-list time {
+    margin-right: auto;
+    color: #8C8C8C;
+    font-size: 12px;
+    direction: ltr;
+}
+
+.attach-list img {
+    width: 56px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #B2C6E3;
+}
+
+.attach-kind {
+    margin-right: auto;
+    color: #8C8C8C;
+    font-size: 12px;
+}
+
+/* پیام موقت */
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #00002C;
+    color: #FFFFFF;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    max-width: calc(100% - 32px);
+}
+
+/* ---------- ضبط ویس ---------- */
+.voice-recorder {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 12px;
+    background: #F8FAFF;
+    border: 1px dashed #B2C6E3;
+    border-radius: 10px;
+}
+
+.voice-recorder [hidden] {
+    display: none !important;
+}
+
+.rec-idle,
+.rec-live,
+.rec-done {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.rec-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rec-hint {
+    font-size: 12px;
+    color: #8C8C8C;
+}
+
+.btn-danger {
+    background: #E1797D;
+    color: #FFFFFF;
+}
+
+.btn-danger:hover {
+    background: #d4666a;
+}
+
+.btn[disabled] {
+    opacity: 0.6;
+    cursor: progress;
+}
+
+.rec-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #E1797D;
+    flex-shrink: 0;
+    animation: rec-pulse 1s ease-in-out infinite;
+}
+
+@keyframes rec-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.8); }
+}
+
+.rec-timer {
+    min-width: 40px;
+    font-size: 15px;
+    color: #00002C;
+    direction: ltr;
+    text-align: center;
+}
+
+.rec-canvas {
+    flex: 1 1 120px;
+    min-width: 100px;
+    width: 100%;
+    max-width: 100%;
+    height: 32px;
+}
+
+.rec-audio {
+    flex: 1 1 220px;
+    min-width: 0;
+    max-width: 100%;
+    height: 36px;
+}
+
+/* کارت ویس‌هایی که کاربر ضبط کرده */
+.feedback-toolbar3.is-new .toolbar2-txt {
+    padding: 0 4px;
+}
+
+.attach-link {
+    color: #36459B;
+    font-size: 12px;
+    text-decoration: none;
+    border: 1px solid #B2C6E3;
+    border-radius: 6px;
+    padding: 2px 8px;
+}
+
+.attach-link:hover {
+    background: #D7DAEA;
+}
+
+/* چاپ */
+@media print {
+    body {
+        background: #FFFFFF;
+        padding: 0;
+    }
+
+    .main-container {
+        box-shadow: none;
+        max-width: none;
+    }
+
+    .header-tabs,
+    .feedback-toolbar,
+    .inline-form,
+    .action-icons,
+    .toast,
+    .edit-bar {
+        display: none !important;
+    }
+
+    .feedback-card,
+    .feedback-toolbar2,
+    .feedback-toolbar3 {
+        break-inside: avoid;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
